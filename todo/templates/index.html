@@ -1,0 +1,8 @@
+<h1> Ваши задачи </h1>
+
+<input placeholder="Новая задача">
+<button> Добавить </button>
+
+{% for task in tasks %}
+    <p> {{task.title}} </p>
+{% endfor %}
