@@ -1,7 +1,10 @@
 <h1> Ваши задачи </h1>
 
-<input placeholder="Новая задача">
-<button> Добавить </button>
+<form action="{% url 'add' %}" method="POST">
+    {% csrf_token %}
+    <input name="title" placeholder="Новая задача">
+    <button> Добавить </button>
+</form>
 
 {% for task in tasks %}
     <p> {{task.title}} </p>
