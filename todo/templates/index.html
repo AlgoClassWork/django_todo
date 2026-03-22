@@ -8,4 +8,5 @@
 
 {% for task in tasks %}
     <p> {{task.title}} </p>
+    <a href="delete/{{ task.id }}"> delete/{{ task.id }}  Удалить </a>
 {% endfor %}
