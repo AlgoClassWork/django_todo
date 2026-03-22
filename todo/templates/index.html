@@ -1,12 +1,36 @@
-<h1> Ваши задачи </h1>
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
 
-<form action="{% url 'add' %}" method="POST">
-    {% csrf_token %}
-    <input name="title" placeholder="Новая задача">
-    <button> Добавить </button>
-</form>
+<div class="todo-container">
+    <h1>Ваши задачи</h1>
 
-{% for task in tasks %}
-    <p> {{task.title}} </p>
-    <a href="delete/{{ task.id }}"> delete/{{ task.id }}  Удалить </a>
-{% endfor %}
+    <form action="{% url 'add' %}" method="POST">
+        {% csrf_token %}
+        <input name="title" placeholder="Новая задача..." required>
+        <button type="submit">Добавить</button>
+    </form>
+
+    {% for task in tasks %}
+    <div class="task-item">
+        <span class="task-title {% if task.completed %}task-completed{% endif %}">
+            {{ task.title }}
+        </span>
+        
+        <div class="actions">
+            <a href="toggle/{{ task.id }}" class="{% if task.completed %}btn-cancel{% else %}btn-toggle{% endif %}">
+                {% if task.completed %} Отменить {% else %} Выполнить {% endif %}
+            </a>
+            <span style="color: #eee">|</span>
+            <a href="delete/{{ task.id }}" class="btn-delete">Удалить</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+</body>
+</html>

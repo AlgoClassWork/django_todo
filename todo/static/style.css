@@ -1,0 +1,105 @@
+/* Общие настройки */
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    margin: 0;
+    padding-top: 50px;
+    color: #333;
+}
+
+/* Контейнер приложения */
+.todo-container {
+    background: rgba(255, 255, 255, 0.95);
+    width: 100%;
+    max-width: 450px;
+    padding: 2rem;
+    border-radius: 20px;
+    shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+h1 {
+    margin-top: 0;
+    font-size: 1.8rem;
+    color: #4a5568;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Форма ввода */
+form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 2rem;
+}
+
+input[name="title"] {
+    flex: 1;
+    padding: 12px 15px;
+    border: 2px solid #edf2f7;
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+input[name="title"]:focus {
+    border-color: #667eea;
+}
+
+button {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #5a67d8;
+}
+
+/* Элементы списка */
+.task-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.task-title {
+    font-size: 1.05rem;
+    flex: 1;
+}
+
+.task-completed {
+    text-decoration: line-through;
+    color: #a0aec0;
+}
+
+/* Ссылки-действия */
+.actions {
+    display: flex;
+    gap: 10px;
+    font-size: 0.9rem;
+}
+
+.actions a {
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.2s;
+}
+
+.btn-delete { color: #f56565; }
+.btn-toggle { color: #38a169; }
+.btn-cancel { color: #ed8936; }
+
+.actions a:hover {
+    opacity: 0.7;
+}
